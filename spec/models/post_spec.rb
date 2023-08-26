@@ -38,7 +38,7 @@ RSpec.describe Post, type: :model do
   describe '#recent_comments' do
     it 'returns the specified number of most recent comments' do
       post = user.posts.create(title: 'Test Post')
-      comment1 = post.comments.create(text: 'Comment 1', author: user)
+      post.comments.create(text: 'Comment 1', author: user)
       comment2 = post.comments.create(text: 'Comment 2', author: user)
       comment3 = post.comments.create(text: 'Comment 3', author: user)
 
@@ -49,9 +49,9 @@ RSpec.describe Post, type: :model do
 
   describe 'after_save callback' do
     it 'increments author\'s posts_counter after saving' do
-      expect {
-        post = user.posts.create(title: 'Test Post')
-      }.to change { user.reload.posts_counter }.by(1)
+      expect do
+        user.posts.create(title: 'Test Post')
+      end.to change { user.reload.posts_counter }.by(1)
     end
   end
 end

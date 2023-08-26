@@ -23,9 +23,9 @@ RSpec.describe Like, type: :model do
 
   describe 'after_save callback' do
     it 'increments post\'s likes_counter after saving' do
-      expect {
-        like = post.likes.create(author: user)
-      }.to change { post.reload.likes_counter }.by(1)
+      expect do
+        post.likes.create(author: user)
+      end.to change { post.reload.likes_counter }.by(1)
     end
   end
 end

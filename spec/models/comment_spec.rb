@@ -20,9 +20,9 @@ RSpec.describe Comment, type: :model do
 
   describe 'after_save callback' do
     it 'increments post\'s comments_counter after saving' do
-      expect {
-        comment = post.comments.create(author: user)
-      }.to change { post.reload.comments_counter }.by(1)
+      expect do
+        post.comments.create(author: user)
+      end.to change { post.reload.comments_counter }.by(1)
     end
   end
 end
