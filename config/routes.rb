@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For URL: https://users
-  get '/users', to: 'users#index', as: :users
+  get '/', to: 'users#index', as: :users
 
   # For URL: https://users/id
   get '/users/:id', to: 'users#show', as: :user
