@@ -9,4 +9,3 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
   end
 end
-  
