@@ -12,7 +12,10 @@ RSpec.describe 'Users', type: :request do
       get users_path
 
       # Assert that the response is successful (HTTP status 200)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
+
+      # Assert that the correct template is rendered
+      expect(response).to render_template('users/index')
 
       # Assert that the page contains the names of the test users
       expect(response.body).to include('otmane')
@@ -30,7 +33,10 @@ RSpec.describe 'Users', type: :request do
       get user_path(user)
 
       # Assert that the response is successful (HTTP status 200)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
+
+      # Assert that the correct template is rendered
+      expect(response).to render_template('users/show')
 
       # Assert that the page contains the user's name
       expect(response.body).to include('Test User')
