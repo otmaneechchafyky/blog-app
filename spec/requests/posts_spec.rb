@@ -23,4 +23,24 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
+  
+  describe 'GET /users/:user_id/posts/:id' do
+    it 'renders a post by the user' do
+      # Create a test user
+      user = User.create(name: 'Test User')
+
+      # Create a test post associated with the user
+      post = user.posts.create(title: 'Test Post', text: 'Test Text')
+
+      # Make a GET request to the user's post show page
+      get user_post_path(user, post)
+
+      # Assert that the response is successful (HTTP status 200)
+      expect(response).to have_http_status(200)
+
+      # Assert that the page contains the title and text of the post
+      expect(response.body).to include('Test Post')
+      expect(response.body).to include('Test Text')
+    end
+  end
 end
