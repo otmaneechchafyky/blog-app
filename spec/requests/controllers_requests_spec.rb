@@ -5,9 +5,9 @@ RSpec.describe 'Combined Specs', type: :request do
   context 'GET /users' do
     it 'renders a list of users' do
       # Create some test users directly in the database
-      user1 = User.create(name: 'otmane')
-      user2 = User.create(name: 'Yusuf')
-      user2 = User.create(name: 'Rayan')
+      User.create(name: 'otmane')
+      User.create(name: 'Yusuf')
+      User.create(name: 'Rayan')
 
       # Make a GET request to the users index page
       get users_path
@@ -24,7 +24,7 @@ RSpec.describe 'Combined Specs', type: :request do
       expect(response.body).to include('Rayan')
     end
   end
-  
+
   context 'GET /users/:id' do
     it 'renders a user profile' do
       # Create a test user directly in the database
@@ -52,8 +52,8 @@ RSpec.describe 'Combined Specs', type: :request do
         user = User.create(name: 'Test User')
 
         # Create some test posts associated with the user
-        post1 = user.posts.create(title: 'Post 1', text: 'Text 1')
-        post2 = user.posts.create(title: 'Post 2', text: 'Text 2')
+        user.posts.create(title: 'Post 1', text: 'Text 1')
+        user.posts.create(title: 'Post 2', text: 'Text 2')
 
         # Make a GET request to the user's posts index page
         get user_posts_path(user)
