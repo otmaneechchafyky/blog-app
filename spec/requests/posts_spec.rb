@@ -17,13 +17,16 @@ RSpec.describe 'Posts', type: :request do
         # Assert that the response is successful (HTTP status 200)
         expect(response).to have_http_status(200)
 
+        # Assert that the correct template is rendered
+        expect(response).to render_template('posts/index')
+
         # Assert that the page contains the titles of the user's posts
         expect(response.body).to include('Post 1')
         expect(response.body).to include('Post 2')
       end
     end
   end
-  
+
   describe 'GET /users/:user_id/posts/:id' do
     it 'renders a post by the user' do
       # Create a test user
@@ -37,6 +40,9 @@ RSpec.describe 'Posts', type: :request do
 
       # Assert that the response is successful (HTTP status 200)
       expect(response).to have_http_status(200)
+
+      # Assert that the correct template is rendered
+      expect(response).to render_template('posts/show')
 
       # Assert that the page contains the title and text of the post
       expect(response.body).to include('Test Post')
