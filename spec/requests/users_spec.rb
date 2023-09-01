@@ -20,5 +20,20 @@ RSpec.describe 'Users', type: :request do
       expect(response.body).to include('Rayan')
     end
   end
+  
+  context 'GET /users/:id' do
+    it 'renders a user profile' do
+      # Create a test user directly in the database
+      user = User.create(name: 'Test User')
 
+      # Make a GET request to the user's show page
+      get user_path(user)
+
+      # Assert that the response is successful (HTTP status 200)
+      expect(response).to have_http_status(200)
+
+      # Assert that the page contains the user's name
+      expect(response.body).to include('Test User')
+    end
+  end
 end
