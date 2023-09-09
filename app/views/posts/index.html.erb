@@ -4,8 +4,8 @@
 <ul>
     <a href="<%= user_path(@user) %>">
         <div class="user-box">
-            <%= render partial: 'user_helper/user_photo', locals: { user: @user } %>
-            <%= render partial: 'user_helper/user_details', locals: { user: @user } %>
+            <%= render partial: 'shared/user_photo', locals: { user: @user } %>
+            <%= render partial: 'shared/user_details', locals: { user: @user } %>
         </div>
     </a>
     <% @posts.each do |post|%>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <h3>Comments:</h3>
-                <% post.recent_comments.each do |comment, index| %>
+                <% post.five_most_recent_comments.each do |comment, index| %>
                 <div class="post-comments">
                     <span><%= comment.author.name %>:</span>
                     <span><%= comment.text %></span>
@@ -29,7 +29,7 @@
             </div>
         </a>
     <% end %>
-    <a href="<%= users_path() %>" class='pagination'>
-        <button id='pagination'>pagination</button>
+    <a href="<%= new_user_post_path(@user, @post) %>" class='pagination'>
+        <button id='pagination'>Create a new post</button>
     </a>
 </ul>
