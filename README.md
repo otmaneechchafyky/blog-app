@@ -15,6 +15,7 @@
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
+    - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
   - [👥 Authors ](#-authors-)
@@ -68,6 +69,15 @@ Clone this repository to your desired folder:
 ```sh
   cd my-folder
   git clone https://github.com/otmaneechchafyky/blog-app.git
+```
+
+### Install
+
+Install this project with:
+
+```sh
+  cd blog-app
+  bundle install
 ```
 
 ### Usage
