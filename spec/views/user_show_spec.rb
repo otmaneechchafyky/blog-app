@@ -26,6 +26,12 @@ RSpec.feature 'User Show', type: :feature do
     expect(page).not_to have_content('fist text')
   end
 
+  scenario 'visiting the user show page, you see the 3 most recent post and bio of the user has written..' do
+    visit user_path(user)
+    expect(page).to have_content('He is a good programmar')
+    expect(page).not_to have_content('fist text')
+  end
+
   scenario 'has a link to the user index page' do
     visit user_path(user)
 

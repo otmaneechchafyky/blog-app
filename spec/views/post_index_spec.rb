@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Post Index', type: :feature do
-  let(:user) { User.create(name: 'Tom', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', bio: 'He is a good programmer') }
+  let(:user) { User.create(name: 'Tom', photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', bio: 'He is a good programmar') }
   let!(:post) { Post.create(author: user, title: "first post's title", text: 'first text') }
   let!(:comment1) { Comment.create(author: user, post:, text: 'first comment') }
   let!(:comment2) { Comment.create(author: user, post:, text: 'second comment') }
