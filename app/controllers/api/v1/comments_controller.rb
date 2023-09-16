@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    before_action :find_user_and_post
+  before_action :find_user_and_post
 
   def index
     @comments = @post.comments
