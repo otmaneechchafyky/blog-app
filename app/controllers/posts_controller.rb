@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_user, only: %i[create index show like unlike destroy]
   before_action :find_post, only: %i[show like unlike destroy]
 
