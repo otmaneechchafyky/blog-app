@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 end
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
