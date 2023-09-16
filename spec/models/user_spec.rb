@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Yusuf') }
+  subject { User.new(name: 'Otmane') }
 
   before { subject.save }
 
@@ -24,19 +24,19 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#recent_posts' do
+  describe '#three_most_recent_posts' do
     it 'returns the 3 most recent posts' do
       # Arrange
-      user = User.create(name: 'Otmane')
-      post1 = Post.create(title: 'post1', author: user, created_at: 4.days.ago)
-      post2 = Post.create(title: 'post2', author: user, created_at: 3.days.ago)
-      post3 = Post.create(title: 'post3', author: user, created_at: 2.days.ago)
+      user = User.create(name: 'Ech')
+      post1 = Post.create(title: 'post1', author: user, created_at: 4.day.ago)
+      post2 = Post.create(title: 'post2', author: user, created_at: 3.day.ago)
+      post3 = Post.create(title: 'post3', author: user, created_at: 2.day.ago)
 
       # Act
-      rec_posts = user.recent_posts
+      reecent_posts = user.three_most_recent_posts
 
       # Assert
-      expect(rec_posts).to eq([post3, post2, post1])
+      expect(reecent_posts).to eq([post3, post2, post1])
     end
   end
 end
