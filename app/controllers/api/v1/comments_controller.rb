@@ -1,5 +1,7 @@
 class Api::V1::CommentsController < ApplicationController
   before_action :find_user_and_post
+  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :authenticate_user!, except: []
 
   def index
     @comments = @post.comments
